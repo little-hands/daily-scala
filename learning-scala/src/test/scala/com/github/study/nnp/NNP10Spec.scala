@@ -3,8 +3,8 @@ package com.github.study.nnp
 import org.scalatest._
 
 /**
- * Created by tamaki on 2015/02/08.
- */
+  * Created by tamaki on 2015/02/08.
+  */
 class NNP10Spec extends FunSpec with Matchers with NNP10 {
 
   describe("Ninety-Nine Scala Problems") {
@@ -12,49 +12,55 @@ class NNP10Spec extends FunSpec with Matchers with NNP10 {
     // P01 (*) Find the last element of a list.
     describe("P01") {
       it("Find the last element of a list.") {
-        last(List(1, 1, 2, 3, 5, 8)) should be (8)
+        last(List(1, 1, 2, 3, 5, 8)) should be(8)
+        last(List(8)) should be(8)
       }
     }
 
     // P02 (*) Find the last but one element of a list.
     describe("P02") {
       it("Find the last but one element of a list.") {
-        penultimate(List(1, 1, 2, 3, 5, 8)) should be (5)
+        penultimate(List(1, 1, 2, 3, 5, 8)) should be(5)
+        penultimate(List(5, 8)) should be(5)
       }
     }
 
     // P03 (*) Find the Kth element of a list.
     describe("P03") {
       it("Find the Kth element of a list.") {
-        nth(2, List(1, 1, 2, 3, 5, 8)) should be (2)
+        nth(2, List(1, 1, 2, 3, 5, 8)) should be(2)
+        nth(0, List(1)) should be(1)
       }
     }
 
     // P04 (*) Find the number of elements of a list.
     describe("P04") {
       it("Find the number of elements of a list.") {
-        length(List(1, 1, 2, 3, 5, 8)) should be (6)
+        length(List(1, 1, 2, 3, 5, 8)) should be(6)
+        length(List(1)) should be(1)
       }
     }
 
     // P05 (*) Reverse a list.
     describe("P05") {
       it("Reverse a list") {
-        reverse(List(1, 1, 2, 3, 5, 8)) should be (List(8, 5, 3, 2, 1, 1))
+        reverse(List(1, 1, 2, 3, 5, 8)) should be(List(8, 5, 3, 2, 1, 1))
+        reverse(List(1)) should be(List(1))
       }
     }
 
     // P06 (*) Find out whether a list is a palindrome.
     describe("P06") {
       it("Find out whether a list is a palindrome.") {
-        isPalindrome(List(1, 2, 3, 2, 1)) should be (right = true)
+        isPalindrome(List(1, 2, 3, 2, 1)) should be(right = true)
+        isPalindrome(List(1, 2, 3, 2, 2)) should be(right = false)
       }
     }
 
     // P07 (**) Flatten a nested list structure.
     describe("P07") {
       it("Flatten a nested list structure.") {
-        flatten(List(List(1, 1), 2, List(3, List(5, 8)))) should be (List(1, 1, 2, 3, 5, 8))
+        flatten(List(List(1, 1), 2, List(3, List(5, 8)))) should be(List(1, 1, 2, 3, 5, 8))
       }
     }
 
@@ -63,7 +69,7 @@ class NNP10Spec extends FunSpec with Matchers with NNP10 {
     // The order of the elements should not be changed.
     describe("P08") {
       it("Eliminate consecutive duplicates of list elements.") {
-        compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be (List('a, 'b, 'c, 'a, 'd, 'e))
+        compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be(List('a, 'b, 'c, 'a, 'd, 'e))
       }
     }
 
@@ -71,7 +77,7 @@ class NNP10Spec extends FunSpec with Matchers with NNP10 {
     // If a list contains repeated elements they should be placed in separate sublists.
     describe("P09") {
       it("Pack consecutive duplicates of list elements into sublists.") {
-        pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be (List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)))
+        pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be(List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e)))
       }
     }
 
@@ -80,7 +86,7 @@ class NNP10Spec extends FunSpec with Matchers with NNP10 {
     // Consecutive duplicates of elements are encoded as tuples (N, E) where N is the number of duplicates of the element E.
     describe("P10") {
       it("Run-length encoding of a list.") {
-        encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be (List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
+        encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) should be(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
       }
     }
 
