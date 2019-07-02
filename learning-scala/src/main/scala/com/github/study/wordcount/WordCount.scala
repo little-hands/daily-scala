@@ -1,8 +1,9 @@
 package com.github.study.wordcount
 
+
 /**
- * Created by tamaki on 2015/02/08.
- */
+  * Created by tamaki on 2015/02/08.
+  */
 class WordCount {
 
   //------------------------------------------------------
@@ -10,22 +11,29 @@ class WordCount {
   // https://gist.github.com/j5ik2o/7210762
   //------------------------------------------------------
   def countFruitsFromLines(lines: List[String]): Map[String, Int] = {
-    ???
+    lines
+      .foldLeft(List[String]())(
+        (x, y) => x ++ y.split(" ").toList)
+      .foldLeft(Map[String, Int]())(
+        (map, str) => map.get(str) match {
+          case None => map + (str -> 1)
+          case Some(count) => map + (str -> (count + 1))
+        })
   }
 
-//  /**
-//   * 勉強会をやる発端となったダメコード
-//   * @param lines
-//   * @return
-//   */
-//  def countFruitsFromLines(lines: List[String]): Map[String, Int] = {
-//    lines.foldLeft(new scala.collection.mutable.HashMap[String, Int]) { (b, line) =>
-//      line.split(" ").map( m => {
-//        val cnt:Int = b.get(m).getOrElse(0) + 1
-//        b.put(m, cnt)
-//      })
-//      b
-//    }.toMap
-//  }
+  //  /**
+  //   * 勉強会をやる発端となったダメコード
+  //   * @param lines
+  //   * @return
+  //   */
+  //  def countFruitsFromLines(lines: List[String]): Map[String, Int] = {
+  //    lines.foldLeft(new scala.collection.mutable.HashMap[String, Int]) { (b, line) =>
+  //      line.split(" "). map( m => {
+  //        val cnt:Int = b.get(m).getOrElse(0) + 1
+  //        b.put(m, cnt)
+  //      })
+  //      b
+  //    }.toMap
+  //  }
 
 }
