@@ -53,6 +53,7 @@ class NNP10Spec extends FunSpec with Matchers with NNP10 {
     describe("P06") {
       it("Find out whether a list is a palindrome.") {
         isPalindrome(List(1, 2, 3, 2, 1)) should be(right = true)
+        isPalindrome(List(1, 2, 2, 1)) should be(right = true)
         isPalindrome(List(1, 2, 3, 2, 2)) should be(right = false)
       }
     }

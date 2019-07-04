@@ -14,6 +14,7 @@ trait NNP10 {
       ints match {
         case x :: Nil => x
         case _ :: xs => last0(xs)
+        case _ => throw new NoSuchElementException
       }
     }
 
@@ -27,6 +28,7 @@ trait NNP10 {
       ints match {
         case x :: _ :: Nil => x
         case _ :: xs => recursive(xs)
+        case _ => throw new NoSuchElementException
       }
     }
 
@@ -52,6 +54,7 @@ trait NNP10 {
       ints match {
         case _ :: Nil => n
         case _ :: xs => recursive(n + 1, xs)
+        case _ => throw new NoSuchElementException
       }
     }
 
@@ -63,7 +66,7 @@ trait NNP10 {
     def recursive(ints: List[Int], result: List[Int]): List[Int] = {
       ints match {
         case Nil => result
-        case x :: xs => recursive(xs, x :: result)
+        case x :: xs => recursive(xs, x :: result )
       }
     }
 
@@ -79,7 +82,14 @@ trait NNP10 {
   }
 
   def compress(list: List[Symbol]): List[Symbol] = {
-    ???
+    @tailrec
+    def recursive(ints: List[Symbol], result: List[Symbol]): List[Symbol] = {
+      ints match {
+        case Nil => result
+        case x :: xs => recursive(xs, x :: result )
+      }
+    }
+    recursive(list, Nil)
   }
 
   def pack(list: List[Symbol]): List[List[Symbol]] = {
