@@ -14,16 +14,9 @@ class WordCount {
   // https://gist.github.com/j5ik2o/7210762
   //------------------------------------------------------
   def countFruitsFromLines(lines: List[String]): Map[String, Int] = {
-    val m: (String, Int) = ("aa", 2)
-
-    lines.flatMap(_.split(" "))
+    val stringToStrings = lines.flatMap(_.split(" "))
       .groupBy(identity)
-//            .map { x =>
-//              x match {
-//                case (k, v) if v.nonEmpty => k -> v.length
-//                case (k, v)  => k -> v.length
-//              }
-//            }
+    val result = stringToStrings
       .map { case (k, v) => k -> v.length }
 
     lines.flatMap(_.split(" "))
@@ -92,6 +85,7 @@ class WordCount {
   }
 
 }
+
 
 
 //  /**
