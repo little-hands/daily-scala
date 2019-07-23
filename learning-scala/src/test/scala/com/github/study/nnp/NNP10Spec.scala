@@ -64,7 +64,6 @@ class NNP10Spec extends FunSpec with Matchers with NNP10 {
         flatten(List(List(1, 1), 2, List(3, List(5, 8)))) should be(List(1, 1, 2, 3, 5, 8))
       }
     }
-
     // P08 (**) Eliminate consecutive duplicates of list elements.
     // If a list contains repeated elements they should be replaced with a single copy of the element.
     // The order of the elements should not be changed.
